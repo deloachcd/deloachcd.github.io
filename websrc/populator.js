@@ -104,7 +104,7 @@ function renderFromCheckboxChange() {
     var tag_to_modify = this.name.slice(checkbox.name.indexOf("_"+1));
     if (this.checked) {
         var tagindex = visible_tags.indexOf(tag_to_modify);
-        visible_tags = visible_tags.splice(tagindex, 1);
+        visible_tags.splice(tagindex, 1);
     } else {
         visible_tags.push(tag_to_modify)
     }
