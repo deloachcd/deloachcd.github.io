@@ -101,8 +101,7 @@ function initial() {
 
 function renderFromCheckboxChange() {
     // event listener for checkboxes
-    var tag_to_modify = this.name.slice(checkbox.name.indexOf("_"+1));
-    console.log(this.name);
+    var tag_to_modify = this.name.slice(checkbox.name.indexOf("_")+1);
     console.log(tag_to_modify);
     if (this.checked) {
         var tagindex = visible_tags.indexOf(tag_to_modify);
