@@ -110,15 +110,12 @@ function renderFromCheckboxChange() {
 }
 
 function renderFromVisibleTags() {
-    // remove the old albums table
-    document.getElementById("main").removeChild(albums_table);
-    // re-create the albums table
+    // drop rows from old albums table
     table_rows = Array.from(albums_table.rows)
     table_rows.forEach(row => {
         albums_table.removeChild(row);
     })
-    table_count = 0
-    // render visible albums
+    // re-render
     renderVisible();
 }
 
