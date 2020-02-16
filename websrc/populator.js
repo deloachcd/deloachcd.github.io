@@ -53,7 +53,8 @@ function renderAlbum(collection_entry) {
         albums_table.appendChild(document.createElement("tr"));
     }
     // target is last row of table
-    var targetAppendRow = albums_table.rows[albums_table.length-1];
+    var table_rows = albums_table.rows;
+    var targetAppendRow = table_rows[table_rows.length-1];
     targetAppendRow.appendChild(td_element);
     table_count++;
 }
@@ -68,7 +69,7 @@ function initial() {
             collection.forEach((entry, index) => {
                 // Populate sidenav from tags
                 appendToSidenav(entry.tags);
-                // Render album (we don't care about tags yet)
+                // Render every album (we don't care about tags yet)
                 renderAlbum(entry);
             })
         });
