@@ -24,12 +24,7 @@ body {
     margin: 20px;
 }
 
-td {
-    width: 15%;
-    height: 15%;
-}
-
 img {
-    width: auto;
-    height: auto;
+    width: 13%;
+    height: 13%;
 }
