@@ -80,7 +80,7 @@ function renderVisible() {
        pad it with empty cells */
     if (albums_table.rows.length > 0) {
         while (albums_table.rows[0].cells.length < 5) {
-            albums_table.appendChild(document.createElement("td"));
+            albums_table.rows[0].appendChild(document.createElement("td"));
         }
     }
 }
