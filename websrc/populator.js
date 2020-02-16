@@ -19,7 +19,7 @@ function sidenav_create_tag(tagliteral) {
     checkbox.setAttribute("type", "checkbox");
     checkbox.setAttribute("name", `checkbox_${tagliteral}`);
     checkbox.setAttribute("value", false);
-    checkbox.addEventListener("change", modifyVisibleTagsList)
+    checkbox.addEventListener("change", renderFromCheckboxChange);
     label = document.createElement("label");
     label.setAttribute("for", `checkbox_${tagliteral}`);
     label.appendChild(document.createTextNode(`${tagliteral}`))
