@@ -18,7 +18,7 @@ function sidenav_create_tag(tagliteral) {
     checkbox = document.createElement("input")
     checkbox.setAttribute("type", "checkbox");
     checkbox.setAttribute("name", `checkbox_${tagliteral}`);
-    checkbox.setAttribute("checked", true);
+    checkbox.setAttribute("checked", false);
     checkbox.addEventListener("change", renderFromCheckboxChange);
     label = document.createElement("label");
     label.setAttribute("for", `checkbox_${tagliteral}`);
@@ -90,8 +90,6 @@ function initial() {
             collection.forEach((entry, index) => {
                 // Populate sidenav from tags
                 appendToSidenav(entry.tags);
-                // All tags are visible at this point
-                visible_tags = sidenav_tags_list.slice()
                 // Render every album (we don't care about tags yet)
                 renderAlbum(entry);
             })
