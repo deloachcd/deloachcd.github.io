@@ -119,6 +119,7 @@ function renderFromVisibleTags() {
     new_table.setAttribute("id", "albums");
     document.getElementById("main").appendChild(new_table);
     albums_table = document.getElementById("albums")
+    table_count = 0
     // render visible albums
     renderVisible();
 }
