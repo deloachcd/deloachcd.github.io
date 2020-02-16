@@ -60,7 +60,7 @@ function renderAlbum(collection_entry) {
     var targetAppendRow = table_rows[table_rows.length-1];
     targetAppendRow.appendChild(td_element);
     table_count++;
-    console.log(`${album} - ${artist} (${entry.tags})`);
+    console.log(`${album} - ${artist} (${collection_entry.tags})`);
 }
 
 function renderVisible() {
