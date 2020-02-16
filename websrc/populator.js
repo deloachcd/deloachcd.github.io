@@ -1,8 +1,10 @@
 // global constants
 let remote_metafile = "https://deloachcd.github.io/websrc/meta.json"
+let global_collection = null
 let albums_table = document.getElementById("albums");
 let sidenav = document.getElementById("sidenav");
 let sidenav_tags_list = []
+let visible_tags = []
 let table_count = 0
 let table_maxwidth = 5
 
@@ -17,6 +19,7 @@ function sidenav_create_tag(tagliteral) {
     checkbox.setAttribute("type", "checkbox");
     checkbox.setAttribute("name", `checkbox_${tagliteral}`);
     checkbox.setAttribute("value", false);
+    checkbox.addEventListener("change", modifyVisibleTagsList)
     label = document.createElement("label");
     label.setAttribute("for", `checkbox_${tagliteral}`);
     label.appendChild(document.createTextNode(`${tagliteral}`))
@@ -60,6 +63,23 @@ function renderAlbum(collection_entry) {
     table_count++;
 }
 
+function renderVisible() {
+    global_collection.forEach((entry, index) => {
+        // only render entry in collection if all tags in visible_tags
+        render_entry = true;
+        entry.tags.forEach((tag, iindex) => {
+            if (visible_tags.indexOf(tag) == -1) {
+                // tag not visible, do not render
+                render_entry = false;
+                break;
+            }
+        });
+        if (render_entry) {
+            renderAlbum(entry);
+        }
+    })
+}
+
 function initial() {
     fetch(remote_metafile)
         .then((response) => {
@@ -70,10 +90,32 @@ function initial() {
             collection.forEach((entry, index) => {
                 // Populate sidenav from tags
                 appendToSidenav(entry.tags);
+                // All tags are visible at this point
+                visible_tags = sidenav_tags_list.slice()
                 // Render every album (we don't care about tags yet)
                 renderAlbum(entry);
             })
+            global_collection = collection
         });
+}
+
+function renderFromCheckboxChange() {
+    // event listener for checkboxes
+    var tag_to_modify = this.name.slice(checkbox.name.indexOf("_"+1));
+    if (this.checked) {
+        var tagindex = visible_tags.indexOf(tag_to_modify);
+        visible_tags = visible_tags.splice(tagindex, 1);
+    } else {
+        visible_tags.push(tag_to_modify)
+    }
+    renderFromVisibleTags();
+}
+
+function renderFromVisibleTags() {
+    // remove the old albums table
+    document.getElementById("main").removeChild(albums_table);
+    // render visible albums
+    renderVisible();
 }
 
 initial();
