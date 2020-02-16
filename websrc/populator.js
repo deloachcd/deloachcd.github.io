@@ -105,7 +105,6 @@ function renderFromCheckboxChange() {
         var tagindex = visible_tags.indexOf(tag_to_modify);
         visible_tags.splice(tagindex, 1);
     }
-    console.log(visible_tags);
     renderFromVisibleTags();
 }
 
