@@ -65,15 +65,14 @@ function renderAlbum(collection_entry) {
 
 function renderVisible() {
     global_collection.forEach((entry, index) => {
-        // render entry in collection if a tag is visible
-        let render_entry = false;
-        entry.tags.forEach((tag, iindex) => {
-            if (visible_tags.indexOf(tag) >= 0) {
-                // tag not visible, do not render
-                render_entry = true;
+        // render entry in collection if all visible tags are matched
+        let render_entry = true;
+        visible_tags.forEach(tag => {
+            if (entry.tags.indexOf(tag) == -1) {
+                render_entry = false;
                 return;
             }
-        });
+        })
         if (render_entry) {
             renderAlbum(entry);
         }
