@@ -74,6 +74,7 @@ function renderVisible() {
             }
         });
         if (render_entry) {
+            console.log(entry.tags);
             renderAlbum(entry);
         }
     })
