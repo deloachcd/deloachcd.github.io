@@ -115,9 +115,10 @@ function renderFromVisibleTags() {
     // remove the old albums table
     document.getElementById("main").removeChild(albums_table);
     // re-create the albums table
-    albums_table = document.createElement("table");
-    albums_table.setAttribute("id", "albums");
-    document.getElementById("main").appendChild(albums_table);
+    new_table = document.createElement("table");
+    new_table.setAttribute("id", "albums");
+    document.getElementById("main").appendChild(new_table);
+    albums_table = document.getElementById("albums")
     // render visible albums
     renderVisible();
 }
