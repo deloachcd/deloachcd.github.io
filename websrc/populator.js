@@ -7,7 +7,7 @@ fetch(remote_metafile)
     .then((json_metadata) => {
         console.log(json_metadata)
         collection = json_metadata.collection;
-        for (entry in collection) {
-            console.log("${entry.album} - ${entry.artist}")
-        }
+        collection.forEach((entry, index) => {
+            console.log(`${entry.album} - ${entry.artist}`)
+        })
     });
