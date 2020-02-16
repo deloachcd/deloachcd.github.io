@@ -41,6 +41,7 @@ function renderAlbum(collection_entry) {
     var image = document.createElement("img");
     image.setAttribute("src", collection_entry.cover);
     var td_element = document.createElement("td");
+    td_element.setAttribute("valign", "top");
     td_element.appendChild(image);
     td_element.appendChild(document.createTextNode(
         `${artist} - ${album}`
