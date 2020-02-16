@@ -28,3 +28,8 @@ td {
     width: 15%;
     height: 15%;
 }
+
+img {
+    width: auto;
+    height: auto;
+}
