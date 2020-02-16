@@ -60,7 +60,6 @@ function renderAlbum(collection_entry) {
     var targetAppendRow = table_rows[table_rows.length-1];
     targetAppendRow.appendChild(td_element);
     table_count++;
-    console.log(`${album} - ${artist} (${collection_entry.tags})`);
 }
 
 function renderVisible() {
@@ -77,6 +76,10 @@ function renderVisible() {
             renderAlbum(entry);
         }
     })
+    // if table has less than 5 rows, pad it with empty cells
+    while (albums_table.rows.length < 5) {
+        albums_table.appendChild(document.createElement("td"));
+    }
 }
 
 function initial() {
