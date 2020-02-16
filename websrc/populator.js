@@ -115,6 +115,8 @@ function renderFromVisibleTags() {
     table_rows.forEach(row => {
         albums_table.removeChild(row);
     })
+    // reset count
+    table_count = 0
     // re-render
     renderVisible();
 }
