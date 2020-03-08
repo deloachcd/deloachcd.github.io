@@ -1,10 +1,1 @@
-**/*.mp3
-**/*.ogg
-**/*.flac
-**/*.alac
-**/*.wav
-**/*.wma
-**/*.aac
-**/*.pcm
-**/*.aiff
-**/*.m4a
+*.swp
